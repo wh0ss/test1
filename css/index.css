@@ -1,0 +1,326 @@
+
+/* 顶部容器 */
+.topbar-warpper{
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	background-color: rgb(255, 255, 255);
+}
+
+/* 导航栏容器 */
+.topbar{
+	width: 1226px;
+	margin: 0 auto;
+}
+/* 顶部导航栏设置浮动 */
+.topbar .logo {
+	float: left;
+}
+
+.topbar .right {
+	float: right;
+}
+
+/* 右侧的选项设置浮动 */
+.right li{
+	float: left;
+}
+/* 设置logo和logout的布局 */
+.logo {
+	width: 90px;
+	height: 25px;
+	margin-top: 40px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #ff0000;
+}
+
+.right .logout{
+	width: 90px;
+	height: 25px;
+	margin-top: 40px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #ff0000;
+}
+
+/* 设置字体 */
+.logo a{
+	font-size: 8px;
+	display: block;
+	color: white;
+}
+
+.right .logout a{
+	font-size: 6px;
+	display: block;
+	color: white;
+}
+/* 设置图案的边距 */
+.right .cog{
+	margin-right: 15px;
+}
+
+.right .bell{
+	margin-right: 30px;
+}
+
+
+/* 设置名字容器 */
+.name-warpper{
+	width: 100%;
+	height: 100px;
+	background-color: rgb(245, 248, 249);
+}
+.name{
+	width: 1226px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.name a{
+	position: absolute;
+	margin-top: 70px;
+	font-size: 30px;
+	font-weight: 400;
+	
+}
+/* 设置中间容器 */
+.nav-warpper{
+	width: 100%;
+	height: 50px;
+	background-color: rgb(245, 248, 249);
+}
+
+.nav{
+	width: 1226px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* 设置浮动 */
+.nav .intro{
+	float: left;
+	line-height: 35px;
+}
+
+.intro a{
+
+	color: #778899;
+	font-weight: 200;
+
+}
+.nav .anniu{
+	float: right;
+	height: 40px;
+}
+.anniu li{
+	line-height: 20px;
+	float: left;
+	margin-left : 30px;
+}
+.anniu a{
+	font-size: 14px;
+	font-weight: 900;
+}
+/* 设置底部效果 */
+.anniu li :hover{
+	box-shadow: 0px 2px #778899;
+}
+
+/* 中间功能容器 */
+.mid-warpper{
+	width: 100%;
+	height: 290px;
+	background-color: rgb(245, 248, 249);
+}
+
+.mid{
+	width: 1226px;
+	height: 280px;
+	margin: 0 auto;
+	padding: 10px 0;
+	position: relative;
+}
+
+/* 左边轮播图区域 */
+.outer{
+	width: 600px;
+	height: 260px;
+	background-color: white;
+	position: relative;
+	margin-right: 26px;
+	/* 裁剪溢出 */
+	display: inline-block;
+	overflow: hidden;
+	z-index: 999;
+}
+/* 轮播图图片列表 */
+.outer .imgList{
+	margin-left: 10px;
+/* 	width: 2900px; */
+	position: absolute;
+	/* 移动590 下一张图 */
+	left: 0px;
+}
+
+.outer li{
+	float: left;
+}
+/* 轮播图框 */
+.outer img{
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 580px;
+	height: 240px;
+	overflow: hidden;
+}
+/* 轮播图按钮 */
+.outer .navDiv{
+	position: absolute;
+	bottom: 15px;
+	left: 245px;
+}
+
+.navDiv a{
+	float: left;
+	width: 10px;
+	height: 10px;
+	background-color: #808080;
+	margin-right: 5px;
+	opacity: 0.5;
+}
+
+.navDiv a:hover{
+	background-color: aliceblue;
+}
+
+/* 右边表格和按钮 */
+.rigOuter{
+	position: absolute;
+	width: 600px;
+	height: 260px;
+
+	display: inline-block;
+}
+
+.rigOuter .rigUp{
+	width: 100%;
+	height: 108px;
+	background-color: white;
+	margin-bottom: 2px;
+}
+
+.rigUp .sr{
+	line-height: 108px;
+	margin-left: 50px;
+}
+
+.button{
+	float: right;
+	margin-top: 30px;
+	margin-right: 45px;
+	background-color: white; /* Green */
+	border-color: rgb(233, 233, 233);
+	color:black;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+}
+
+.rigOuter .rigDown{
+	width: 100%;
+	height: 150px;	
+	background-color: white;
+}
+
+/* 右下表格 */
+.tab{
+	float: left;
+	margin-top: 10px;
+	line-height: 45px;
+	margin-right: 50px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.solved{
+	background-color: rgb(93,208, 84); /* Green */
+	border-color: white;
+	color:white;
+	padding: 6px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+}
+
+.quxian-warpper{
+	width: 100%;
+	height: 350px;
+/* 	margin-top: 15px; */
+	background-color: rgb(245, 248, 249);
+}
+/* 饼状图和柱状图 */
+.baz-warpper{
+	width: 100%;
+	height: 330px;
+	background-color: rgb(245, 248, 249);
+}
+
+.baz{
+	width: 1226px;
+	height: 330px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.foot-warpper{
+	width: 100%;
+	height: 310px;
+	background-color: rgb(32, 32, 32);
+}
+
+.foot{
+	width: 1226px;
+	height: 280px;
+	margin: 0 auto;
+	background-color: rgb(32, 32, 32);
+}
+
+.flogo{
+	width: 90px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	float: left;
+	background-color: #ff0000;
+	margin-top: 80px;
+	margin-right: 80px;
+}
+
+.flogo a{
+	font-size: 8px;
+	display: block;
+	color: white;
+}
+.fbtn1 > table{
+	background-color: rgb(32, 33, 36);
+	float: left;
+	margin-top: 80px;
+}
+
+.fbtn1 td{
+	width: 200px;
+	height: 30px;
+}
+
+.fbtn1 a{
+	color: white;
+	font-weight: 400;
+
+}
+
+

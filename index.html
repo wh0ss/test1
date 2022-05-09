@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="./fa/css/all.css">
+		<link rel="stylesheet" href="./css/base.css">
+		<link rel="stylesheet" href="./css/reset.css">
+		<link rel="stylesheet" href="./css/index.css">
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<meta charset="utf-8" />
+		<title>练习</title>
+		
+	</head>
+	
+
+	
+	<body>
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<!-- 顶部 -->
+		<div class="topbar-warpper">
+			<div class="topbar clearfix">
+				<div class="logo">
+				<!-- 左侧logo按钮 -->
+					<a href="javasscript:;" >L O G O</a>
+				</div>
+				
+				<!-- 右侧log out按钮 -->
+				<ul class="right">
+					<li class="cog">
+						<a href="javascript:;" style="color: black;">
+							<i class="fa fa-cog"></i>
+						</a>
+					</li>
+					
+					<li class="bell">
+						<a href="javascript:;" style="color: black;">
+							<i class="fa fa-bell"></i>
+						</a>
+					</li>
+				
+					<li class="logout">
+						<a href="javasscript:;">log out</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Audience Overview -->
+		<div class="name-warpper">
+			<!-- 左侧名字 -->
+			<div class="name">
+				<a>Audience Overview</a>
+			</div>
+		</div>
+		<!-- 中间选项 -->
+		<div class="nav-warpper">
+			<div class="nav">
+				<!-- 左侧介绍 -->
+				<div class="intro">
+					<a>Rosveille, CA </a>
+				</div>
+				<!-- 右侧导航条 -->
+				<ul class="anniu">
+					<li><a href="javascript:;">DASHBODER</a></li>
+					<li><a href="javascript:;">PROJECT</a></li>
+					<li><a href="javascript:;">CALENDER</a></li>
+					<li><a href="javascript:;">MAILBOX</a></li>
+					<li><a href="javascript:;">SETTINGS</a></li>
+				</ul>
+				
+			</div>
+		</div>
+		<!-- 轮播图部分 -->
+		<div class="mid-warpper">
+			<div class="mid">
+				<!-- 左边框 -->
+				<div class="outer">
+					
+					<ul class="imgList">
+						<li><img src="./img/1.jpg" ></li>
+						<li><img src="./img/2.jpg" ></li>
+						<li><img src="./img/3.jpg" ></li>
+						<li><img src="./img/4.jpg" ></li>
+						<li><img src="./img/5.jpg" ></li>
+						<li><img src="./img/1.jpg" ></li>
+					</ul>
+					<!--创建导航按钮-->
+					<div class="navDiv">
+						<a href="javascript:;"></a>
+						<a href="javascript:;"></a>
+						<a href="javascript:;"></a>
+						<a href="javascript:;"></a>
+						<a href="javascript:;"></a>
+					</div>
+				</div>
+				<!-- 右边框 -->
+				<div class="rigOuter">
+					<!-- 右上边框 -->
+					<div class="rigUp">	
+						<a style="font-size: 20px; " class="sr">Support Requester</a>
+						<button class="button">View All</button>
+					</div>
+					<!-- 右下边框 -->
+					<div class="rigDown">
+						<table class="tab" style="margin-left: 50px;">
+							<tr>
+								<td style="font-weight: 700; ">TIME</td>
+								<td style="font-weight: 700;">USER NAME</td>
+								<td style="font-weight: 700;">&nbsp;&nbsp;&nbsp;STATUS</td>
+							</tr>
+							<tr>
+								<td>9.45pm</td>
+								<td>info@design.com</td>
+								<td><button class="solved">Solved</button></td>
+							</tr>
+							<tr>
+								<td>9.45pm</td>
+								<td>info@design.com</td>
+								<td><button class="solved">Solved</button></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 曲线图 -->
+		<div class="quxian-warpper">
+			
+			<div id="main" style="width: 1226px;height:330px; margin: 0 auto; background-color: white;"></div>
+				<script type="text/javascript">
+					
+				
+				 <!-- 基于准备好的dom，初始化echarts实例 -->
+				var myChart = echarts.init(document.getElementById('main'));
+				let data = [];
+				let xAxis = {type: 'category'};
+				let seriesData
+				$.ajax({
+					url: 'https://edu.telking.com/api/?type=month',
+					method: 'GET',
+					dataType: 'JSON',
+					success: function(result) {
+						let data = result.data;
+						if(result.code == '200') {
+							xAxis.data = data.xAxis;
+							seriesData = data.series;
+						}
+					},
+					async: false
+				})
+				
+				// 指定图表的配置项和数据
+				          var option = {
+							
+				             title: {
+								 textStyle: {
+									 lineHeight: 70},
+									 
+								 left: "center",
+				            text: '曲线图数据展示'
+				              },
+				              tooltip: {},
+				              legend: {
+				                  data:['销量']
+				              },
+				              xAxis,
+				              yAxis: {},
+							  grid: {
+							      top: "28%"
+							    },
+							  label: {
+							          show: true,
+							          position: 'top',
+										color: "rgba(2, 55, 249, 1)"
+							        },
+				              series: [
+								  {
+				                  name: '',
+				                  type: 'line',
+				                  data: seriesData,
+								  smooth: true,
+								       areaStyle: {
+								          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+								            {
+								              offset: 0,
+								              color: 'rgba(58,77,233,0.8)'
+								            },
+								            {
+								              offset: 1,
+								              color: 'rgba(58,77,233,0.3)'
+								            }
+								          ])
+								        },
+								  lineStyle: {
+								        color: "rgba(2, 55, 249, 1)",
+								},
+								itemStyle: {
+								      color: "rgba(2, 55, 249, 1)"
+								    },
+								
+				              },
+							]
+				       };
+					   // 使用刚指定的配置项和数据显示图表。
+					   myChart.setOption(option); 
+				</script>
+			</div>
+		</div>
+		<!-- 饼状图和柱状图 -->
+		<div class="baz-warpper">
+			<div class="baz">
+				<!-- 左侧饼状图 -->
+				<div id="bz" style="width: 600px; height:330px;margin-right: 20px;background-color: white; display:inline-block;"></div>
+					<script type="text/javascript">
+						let piechart = echarts.init(document.getElementById('bz'));
+						var option = {
+						   title: {
+						       text: '饼状图数据展示',
+							   left: "center",
+							   textStyle: {
+							   	lineHeight: 70},
+						    },
+							series : [
+					        {
+					            name: '访问来源',
+					            type: 'pie',
+					            radius: '55%',
+					            data:[
+					                { value: 8200, name: 'Mon' },
+					                { value: 8267, name: 'Tue' },
+					                { value: 193, name: 'Wed' },
+					                { value: 8480, name: 'Thu' },
+					                { value: 7274, name: 'Fri' },
+					                { value: 778, name: 'Sat' },
+					                { value: 3150, name: 'Sun' }
+					            ]
+					        }
+					    ]
+		       };
+				piechart.setOption(option); 
+					</script>
+				<!-- 右侧柱状图 -->
+
+				<div id="zz" style="width: 600px; height:330px;background-color:white; display:inline-block; "></div>
+					<script type="text/javascript">
+					var barChart = echarts.init(document.getElementById('zz'));
+						   	 data = [];
+							 xAxis = {type: 'category'};
+							 seriesData
+							$.ajax({
+								url: 'https://edu.telking.com/api/?type=week',
+								method: 'GET',
+								dataType: 'JSON',
+								success: function(result) {
+									let data = result.data;
+									if(result.code == '200') {
+										xAxis.data = data.xAxis;
+										seriesData = data.series;
+									}
+								},
+								async: false
+							})
+					// 指定图表的配置项和数据
+					          var options = {
+					             title: {
+					                 text: '柱状图数据展示',
+									 left:"center",
+					              },
+					              tooltip: {},
+					              legend: {
+					                  data:['']
+					              },
+					              xAxis,
+					              yAxis: {},
+					              series: [
+									  {
+										barWidth:20,
+					                  name: '商品数',
+					                  type: 'bar',
+					                  data: seriesData,
+									  itemStyle: {
+									        color: "rgba(26, 111, 247, 1)"
+									      }
+					              }
+								]
+					       };
+						   // 使用刚指定的配置项和数据显示图表。
+						   barChart.setOption(options); 
+					</script>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="foot-warpper">
+			<div class="foot">
+				<div class="flogo">
+				<!-- 左侧logo按钮 -->
+					<a href="javasscript:;" >L O G O</a>					
+				</div>
+				<!-- 五个列表 -->
+				<div class="fbtn1">
+					<table>
+						<tr>
+						<td><a href="javasscript:;" >NEWS</a></td>
+						<td><a href="javasscript:;" >SPORTS</a></td>
+						<td><a href="javasscript:;" >WEATHER</a></td>
+						<td><a href="javasscript:;" >FUTURE</a></td>
+						<td><a href="javasscript:;" >TRAVEL</a></td>
+					</tr>
+					<tr>
+						<td><a href="javasscript:;" >CHANNELS</a></td>
+						<td><a href="javasscript:;" style="text-decoration: underline white">CULTURES</a></td>
+						<td><a href="javasscript:;" >AUTOS</a></td>
+						<td><a href="javasscript:;" >FOOD</a></td>
+						<td><a href="javasscript:;" >TADIO</a></td>
+					</tr>
+					<tr>
+						<td><a href="javasscript:;" >OVERVIEW</a></td>
+						<td><a href="javasscript:;" >NATURE</a></td>
+						<td><a href="javasscript:;" >LOCAL</a></td>
+						<td><a href="javasscript:;" >EARTH</a></td>
+						<td><a href="javasscript:;" ></a></td>
+					</tr>
+					<tr>
+						<td><a href="javasscript:;" >TIMELINE</a></td>
+						<td><a href="javasscript:;" >MUSIC</a></td>
+						<td><a href="javasscript:;" >SHOP</a></td>
+						<td><a href="javasscript:;" >TV</a></td>
+						<td><a href="javasscript:;" ></a></td>
+					</tr>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript" src="js/tools.js"></script>
+	<script type="text/javascript">
+		//获取imgList
+		var imgList = document.getElementsByClassName("imgList")[0];
+		//获取A页面中所有的img标签
+		var imgArr = document.getElementsByTagName("img");
+		//设置imgList的宽度
+		imgList.style.width = 590*imgArr.length+"px";
+		
+		//默认显示图片的索引
+		var index = 0;
+		//获取全部a
+		var allA = document.getElementsByClassName("navDiv")[0].getElementsByTagName("a");
+		//设置默认选中的效果
+		allA[index].style.backgroundColor = "aliceblue";
+		
+		// 为超链接绑定单击响应函数
+		for(let i=0;i<allA.length;i++){
+			allA[i].onclick = function(){
+				clearInterval(timer);
+				index = i;
+				// imgList.style.left = -590*index + "px";
+				
+				 setA();
+				 
+				 move(imgList,"left",-590*index,20,function(){
+					 autochange();
+				 })
+			}
+		}
+		
+		autochange();
+		
+		function setA(){
+			
+			if(index >= imgArr.length -1){
+				index = 0;
+				imgList.style.left = 0;
+			}
+			//遍历所有a，并将它们的背景颜色设置为灰色
+				for(let i=0 ; i<allA.length ; i++){
+					allA[i].style.backgroundColor = "";
+				}
+				
+				//将选中的a设置为淡白色
+				allA[index].style.backgroundColor = "aliceblue";
+			}
+		var timer;
+		function autochange(){
+			timer = setInterval(function(){
+				
+				index++;
+				//判断index的值
+				index %= imgArr.length;
+				
+				move(imgList,"left",-590*index,20,function(){
+					setA();			 
+				})
+				
+			},3000)
+		}
+
+		
+	</script>
+</html>
